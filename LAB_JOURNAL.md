@@ -55,5 +55,6 @@
   + Install Ansible dependencies
   + Run Kolla bootstrap
   + Run Prechecks
+  + kolla-ansible pull
 
 
