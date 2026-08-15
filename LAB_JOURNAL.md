@@ -14,7 +14,7 @@
 - [Only Ctrl01] Establish SSH from local to GIT (instead of use https)
 - [Only Ctrl01] Create Veth Internal by service
 - Network Topology:
-                   Home Wi-Fi
+- Home Wi-Fi
                192.168.1.0/24
                       |
            +----------+----------+
