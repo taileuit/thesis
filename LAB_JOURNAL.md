@@ -56,5 +56,4 @@
   + Run Kolla bootstrap
   + Run Prechecks
   + kolla-ansible pull
-
-
+  + kolla-ansible deploy
