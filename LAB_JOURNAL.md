@@ -11,5 +11,7 @@
   + Create VirtualEnv /opt/kolla/venv
   + Grant "tai" account to own /opt/kolla/venv (sudo chown -R tai:tai /opt/kolla-venv)
   + Install pip
+- Establish SSH from local to GIT (instead of use https)
 - Multinode Configuration
+
 
