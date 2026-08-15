@@ -1,0 +1,48 @@
+Post-Deploying Playbooks
+[WARNING]: Invalid characters were found in group names but not replaced, use
+-vvvv to see details
+
+PLAY [Determining whether we need become=true] *********************************
+
+TASK [Get stats of /etc/kolla] *************************************************
+[WARNING]: Platform linux on host localhost is using the discovered Python
+interpreter at /opt/kolla-venv/bin/python3.12, but future installation of
+another Python interpreter could change the meaning of that path. See
+https://docs.ansible.com/ansible-
+core/2.17/reference_appendices/interpreter_discovery.html for more information.
+ok: [localhost]
+
+TASK [Set become fact] *********************************************************
+ok: [localhost]
+
+PLAY [Creating clouds.yaml file on the deploy node] ****************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [localhost]
+
+TASK [Template out clouds.yaml] ************************************************
+changed: [localhost]
+
+PLAY [Creating admin openrc file on the deploy node] ***************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [localhost]
+
+TASK [Template out admin-openrc.sh] ********************************************
+changed: [localhost]
+
+TASK [Template out admin-openrc-system.sh] *************************************
+changed: [localhost]
+
+TASK [Template out public-openrc.sh] *******************************************
+changed: [localhost]
+
+TASK [Template out public-openrc-system.sh] ************************************
+changed: [localhost]
+
+TASK [octavia : Template out octavia-openrc.sh] ********************************
+skipping: [localhost]
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=9    changed=5    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+

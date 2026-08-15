@@ -1,0 +1,723 @@
+Pulling Docker images
+[WARNING]: Invalid characters were found in group names but not replaced, use
+-vvvv to see details
+
+PLAY [Gather facts for all hosts] **********************************************
+
+TASK [Group hosts to determine when using --limit] *****************************
+ok: [comp01]
+ok: [ctrl01]
+ok: [localhost]
+
+TASK [Gather facts] ************************************************************
+[WARNING]: Platform linux on host localhost is using the discovered Python
+interpreter at /opt/kolla-venv/bin/python3.12, but future installation of
+another Python interpreter could change the meaning of that path. See
+https://docs.ansible.com/ansible-
+core/2.17/reference_appendices/interpreter_discovery.html for more information.
+[WARNING]: Could not match supplied host pattern, ignoring:
+all_using_limit_True
+ok: [localhost]
+ok: [ctrl01]
+ok: [comp01]
+
+PLAY [Gather facts for all hosts (if using --limit)] ***************************
+skipping: no hosts matched
+
+PLAY [Group hosts based on configuration] **************************************
+
+TASK [Group hosts based on Kolla action] ***************************************
+ok: [comp01]
+ok: [ctrl01]
+ok: [localhost]
+
+TASK [Group hosts based on enabled services] ***********************************
+[WARNING]: Could not match supplied host pattern, ignoring:
+kolla_action_precheck
+ok: [comp01] => (item=enable_aodh_False)
+ok: [comp01] => (item=enable_barbican_False)
+ok: [comp01] => (item=enable_blazar_False)
+ok: [comp01] => (item=enable_ceilometer_False)
+ok: [comp01] => (item=enable_ceph_rgw_False)
+ok: [comp01] => (item=enable_cinder_False)
+ok: [comp01] => (item=enable_cloudkitty_False)
+ok: [comp01] => (item=enable_collectd_False)
+ok: [comp01] => (item=enable_cyborg_False)
+ok: [comp01] => (item=enable_designate_False)
+ok: [comp01] => (item=enable_etcd_False)
+ok: [comp01] => (item=enable_glance_True)
+ok: [comp01] => (item=enable_gnocchi_False)
+ok: [comp01] => (item=enable_grafana_False)
+ok: [comp01] => (item=enable_hacluster_False)
+ok: [comp01] => (item=enable_heat_True)
+ok: [comp01] => (item=enable_horizon_True)
+ok: [comp01] => (item=enable_influxdb_False)
+ok: [comp01] => (item=enable_ironic_False)
+ok: [comp01] => (item=enable_iscsid_False)
+ok: [comp01] => (item=enable_keystone_True)
+ok: [comp01] => (item=enable_kuryr_False)
+ok: [comp01] => (item=enable_letsencrypt_False)
+ok: [comp01] => (item=enable_loadbalancer_True)
+ok: [comp01] => (item=enable_magnum_False)
+ok: [comp01] => (item=enable_manila_False)
+ok: [comp01] => (item=enable_mariadb_True)
+ok: [comp01] => (item=enable_masakari_False)
+ok: [comp01] => (item=enable_memcached_True)
+ok: [comp01] => (item=enable_mistral_False)
+ok: [comp01] => (item=enable_multipathd_False)
+ok: [comp01] => (item=enable_neutron_True)
+ok: [comp01] => (item=enable_nova_True)
+ok: [comp01] => (item=enable_octavia_False)
+ok: [comp01] => (item=enable_opensearch_False)
+ok: [comp01] => (item=enable_opensearch_dashboards_False)
+ok: [comp01] => (item=enable_openvswitch_True_enable_ovs_dpdk_False)
+ok: [comp01] => (item=enable_ovn_True)
+ok: [comp01] => (item=enable_placement_True)
+ok: [comp01] => (item=enable_prometheus_False)
+ok: [comp01] => (item=enable_rabbitmq_True)
+ok: [comp01] => (item=enable_redis_False)
+ok: [comp01] => (item=enable_skyline_False)
+ok: [comp01] => (item=enable_tacker_False)
+ok: [comp01] => (item=enable_telegraf_False)
+ok: [comp01] => (item=enable_trove_False)
+ok: [comp01] => (item=enable_valkey_False)
+ok: [comp01] => (item=enable_venus_False)
+ok: [comp01] => (item=enable_watcher_False)
+ok: [comp01] => (item=enable_zun_False)
+ok: [localhost] => (item=enable_aodh_False)
+ok: [localhost] => (item=enable_barbican_False)
+ok: [localhost] => (item=enable_blazar_False)
+ok: [localhost] => (item=enable_ceilometer_False)
+ok: [localhost] => (item=enable_ceph_rgw_False)
+ok: [localhost] => (item=enable_cinder_False)
+ok: [localhost] => (item=enable_cloudkitty_False)
+ok: [localhost] => (item=enable_collectd_False)
+ok: [localhost] => (item=enable_cyborg_False)
+ok: [localhost] => (item=enable_designate_False)
+ok: [localhost] => (item=enable_etcd_False)
+ok: [localhost] => (item=enable_glance_True)
+ok: [localhost] => (item=enable_gnocchi_False)
+ok: [localhost] => (item=enable_grafana_False)
+ok: [localhost] => (item=enable_hacluster_False)
+ok: [localhost] => (item=enable_heat_True)
+ok: [localhost] => (item=enable_horizon_True)
+ok: [localhost] => (item=enable_influxdb_False)
+ok: [localhost] => (item=enable_ironic_False)
+ok: [localhost] => (item=enable_iscsid_False)
+ok: [localhost] => (item=enable_keystone_True)
+ok: [localhost] => (item=enable_kuryr_False)
+ok: [localhost] => (item=enable_letsencrypt_False)
+ok: [localhost] => (item=enable_loadbalancer_True)
+ok: [localhost] => (item=enable_magnum_False)
+ok: [localhost] => (item=enable_manila_False)
+ok: [localhost] => (item=enable_mariadb_True)
+ok: [localhost] => (item=enable_masakari_False)
+ok: [localhost] => (item=enable_memcached_True)
+ok: [localhost] => (item=enable_mistral_False)
+ok: [localhost] => (item=enable_multipathd_False)
+ok: [localhost] => (item=enable_neutron_True)
+ok: [localhost] => (item=enable_nova_True)
+ok: [localhost] => (item=enable_octavia_False)
+ok: [localhost] => (item=enable_opensearch_False)
+ok: [localhost] => (item=enable_opensearch_dashboards_False)
+ok: [localhost] => (item=enable_openvswitch_True_enable_ovs_dpdk_False)
+ok: [localhost] => (item=enable_ovn_True)
+ok: [localhost] => (item=enable_placement_True)
+ok: [localhost] => (item=enable_prometheus_False)
+ok: [localhost] => (item=enable_rabbitmq_True)
+ok: [localhost] => (item=enable_redis_False)
+ok: [localhost] => (item=enable_skyline_False)
+ok: [localhost] => (item=enable_tacker_False)
+ok: [localhost] => (item=enable_telegraf_False)
+ok: [localhost] => (item=enable_trove_False)
+ok: [localhost] => (item=enable_valkey_False)
+ok: [localhost] => (item=enable_venus_False)
+ok: [localhost] => (item=enable_watcher_False)
+ok: [localhost] => (item=enable_zun_False)
+ok: [ctrl01] => (item=enable_aodh_False)
+ok: [ctrl01] => (item=enable_barbican_False)
+ok: [ctrl01] => (item=enable_blazar_False)
+ok: [ctrl01] => (item=enable_ceilometer_False)
+ok: [ctrl01] => (item=enable_ceph_rgw_False)
+ok: [ctrl01] => (item=enable_cinder_False)
+ok: [ctrl01] => (item=enable_cloudkitty_False)
+ok: [ctrl01] => (item=enable_collectd_False)
+ok: [ctrl01] => (item=enable_cyborg_False)
+ok: [ctrl01] => (item=enable_designate_False)
+ok: [ctrl01] => (item=enable_etcd_False)
+ok: [ctrl01] => (item=enable_glance_True)
+ok: [ctrl01] => (item=enable_gnocchi_False)
+ok: [ctrl01] => (item=enable_grafana_False)
+ok: [ctrl01] => (item=enable_hacluster_False)
+ok: [ctrl01] => (item=enable_heat_True)
+ok: [ctrl01] => (item=enable_horizon_True)
+ok: [ctrl01] => (item=enable_influxdb_False)
+ok: [ctrl01] => (item=enable_ironic_False)
+ok: [ctrl01] => (item=enable_iscsid_False)
+ok: [ctrl01] => (item=enable_keystone_True)
+ok: [ctrl01] => (item=enable_kuryr_False)
+ok: [ctrl01] => (item=enable_letsencrypt_False)
+ok: [ctrl01] => (item=enable_loadbalancer_True)
+ok: [ctrl01] => (item=enable_magnum_False)
+ok: [ctrl01] => (item=enable_manila_False)
+ok: [ctrl01] => (item=enable_mariadb_True)
+ok: [ctrl01] => (item=enable_masakari_False)
+ok: [ctrl01] => (item=enable_memcached_True)
+ok: [ctrl01] => (item=enable_mistral_False)
+ok: [ctrl01] => (item=enable_multipathd_False)
+ok: [ctrl01] => (item=enable_neutron_True)
+ok: [ctrl01] => (item=enable_nova_True)
+ok: [ctrl01] => (item=enable_octavia_False)
+ok: [ctrl01] => (item=enable_opensearch_False)
+ok: [ctrl01] => (item=enable_opensearch_dashboards_False)
+ok: [ctrl01] => (item=enable_openvswitch_True_enable_ovs_dpdk_False)
+ok: [ctrl01] => (item=enable_ovn_True)
+ok: [ctrl01] => (item=enable_placement_True)
+ok: [ctrl01] => (item=enable_prometheus_False)
+ok: [ctrl01] => (item=enable_rabbitmq_True)
+ok: [ctrl01] => (item=enable_redis_False)
+ok: [ctrl01] => (item=enable_skyline_False)
+ok: [ctrl01] => (item=enable_tacker_False)
+ok: [ctrl01] => (item=enable_telegraf_False)
+ok: [ctrl01] => (item=enable_trove_False)
+ok: [ctrl01] => (item=enable_valkey_False)
+ok: [ctrl01] => (item=enable_venus_False)
+ok: [ctrl01] => (item=enable_watcher_False)
+ok: [ctrl01] => (item=enable_zun_False)
+
+PLAY [Apply role prechecks] ****************************************************
+skipping: no hosts matched
+
+PLAY [Apply role common] *******************************************************
+
+TASK [common : include_tasks] **************************************************
+included: /opt/kolla-venv/share/kolla-ansible/ansible/roles/common/tasks/pull.yml for ctrl01, comp01
+
+TASK [service-images-pull : common | Pull images] ******************************
+ok: [ctrl01] => (item=fluentd)
+ok: [comp01] => (item=fluentd)
+ok: [ctrl01] => (item=kolla-toolbox)
+ok: [comp01] => (item=kolla-toolbox)
+ok: [ctrl01] => (item=cron)
+ok: [comp01] => (item=cron)
+
+PLAY [Apply role loadbalancer] *************************************************
+
+TASK [loadbalancer : include_tasks] ********************************************
+included: /opt/kolla-venv/share/kolla-ansible/ansible/roles/loadbalancer/tasks/pull.yml for ctrl01
+
+TASK [service-images-pull : loadbalancer | Pull images] ************************
+ok: [ctrl01] => (item=haproxy)
+ok: [ctrl01] => (item=proxysql)
+ok: [ctrl01] => (item=keepalived)
+
+TASK [include_role : aodh] *****************************************************
+skipping: [ctrl01]
+
+TASK [include_role : barbican] *************************************************
+skipping: [ctrl01]
+
+TASK [include_role : blazar] ***************************************************
+skipping: [ctrl01]
+
+TASK [include_role : ceph-rgw] *************************************************
+skipping: [ctrl01]
+
+TASK [include_role : cinder] ***************************************************
+skipping: [ctrl01]
+
+TASK [include_role : cloudkitty] ***********************************************
+skipping: [ctrl01]
+
+TASK [include_role : cyborg] ***************************************************
+skipping: [ctrl01]
+
+TASK [include_role : designate] ************************************************
+skipping: [ctrl01]
+
+TASK [include_role : etcd] *****************************************************
+skipping: [ctrl01]
+
+TASK [include_role : glance] ***************************************************
+skipping: [ctrl01]
+
+TASK [include_role : gnocchi] **************************************************
+skipping: [ctrl01]
+
+TASK [include_role : grafana] **************************************************
+skipping: [ctrl01]
+
+TASK [include_role : heat] *****************************************************
+skipping: [ctrl01]
+
+TASK [include_role : horizon] **************************************************
+skipping: [ctrl01]
+
+TASK [include_role : influxdb] *************************************************
+skipping: [ctrl01]
+
+TASK [include_role : ironic] ***************************************************
+skipping: [ctrl01]
+
+TASK [include_role : keystone] *************************************************
+skipping: [ctrl01]
+
+TASK [include_role : letsencrypt] **********************************************
+skipping: [ctrl01]
+
+TASK [include_role : magnum] ***************************************************
+skipping: [ctrl01]
+
+TASK [include_role : manila] ***************************************************
+skipping: [ctrl01]
+
+TASK [include_role : mariadb] **************************************************
+skipping: [ctrl01]
+
+TASK [include_role : masakari] *************************************************
+skipping: [ctrl01]
+
+TASK [include_role : memcached] ************************************************
+skipping: [ctrl01]
+
+TASK [include_role : mistral] **************************************************
+skipping: [ctrl01]
+
+TASK [include_role : neutron] **************************************************
+skipping: [ctrl01]
+
+TASK [include_role : placement] ************************************************
+skipping: [ctrl01]
+
+TASK [include_role : nova] *****************************************************
+skipping: [ctrl01]
+
+TASK [include_role : nova-cell] ************************************************
+skipping: [ctrl01]
+
+TASK [include_role : octavia] **************************************************
+skipping: [ctrl01]
+
+TASK [include_role : opensearch] ***********************************************
+skipping: [ctrl01]
+
+TASK [include_role : prometheus] ***********************************************
+skipping: [ctrl01]
+
+TASK [include_role : rabbitmq] *************************************************
+skipping: [ctrl01]
+
+TASK [include_role : skyline] **************************************************
+skipping: [ctrl01]
+
+TASK [include_role : tacker] ***************************************************
+skipping: [ctrl01]
+
+TASK [include_role : trove] ****************************************************
+skipping: [ctrl01]
+
+TASK [include_role : venus] ****************************************************
+skipping: [ctrl01]
+
+TASK [include_role : watcher] **************************************************
+skipping: [ctrl01]
+
+TASK [include_role : zun] ******************************************************
+skipping: [ctrl01]
+
+TASK [include_role : loadbalancer] *********************************************
+[WARNING]: Could not match supplied host pattern, ignoring:
+enable_letsencrypt_True
+[WARNING]: Could not match supplied host pattern, ignoring:
+enable_collectd_True
+[WARNING]: Could not match supplied host pattern, ignoring:
+enable_influxdb_True
+[WARNING]: Could not match supplied host pattern, ignoring:
+enable_telegraf_True
+[WARNING]: Could not match supplied host pattern, ignoring: enable_redis_True
+[WARNING]: Could not match supplied host pattern, ignoring: enable_valkey_True
+skipping: [ctrl01]
+
+PLAY [Apply role letsencrypt] **************************************************
+skipping: no hosts matched
+
+PLAY [Apply role collectd] *****************************************************
+skipping: no hosts matched
+
+PLAY [Apply role influxdb] *****************************************************
+skipping: no hosts matched
+
+PLAY [Apply role telegraf] *****************************************************
+skipping: no hosts matched
+
+PLAY [Apply role redis] ********************************************************
+skipping: no hosts matched
+
+PLAY [Apply role valkey] *******************************************************
+skipping: no hosts matched
+
+PLAY [Apply role mariadb] ******************************************************
+
+TASK [mariadb : Group MariaDB hosts based on shards] ***************************
+ok: [ctrl01] => (item=ctrl01)
+
+TASK [mariadb : include_tasks] *************************************************
+included: /opt/kolla-venv/share/kolla-ansible/ansible/roles/mariadb/tasks/pull.yml for ctrl01
+
+TASK [service-images-pull : mariadb | Pull images] *****************************
+[WARNING]: Could not match supplied host pattern, ignoring: mariadb_restart
+[WARNING]: Could not match supplied host pattern, ignoring: mariadb_start
+[WARNING]: Could not match supplied host pattern, ignoring:
+mariadb_bootstrap_restart
+ok: [ctrl01] => (item=mariadb)
+
+PLAY [Restart mariadb services] ************************************************
+skipping: no hosts matched
+
+PLAY [Start mariadb services] **************************************************
+skipping: no hosts matched
+
+PLAY [Restart bootstrap mariadb service] ***************************************
+skipping: no hosts matched
+
+PLAY [Apply mariadb post-configuration] ****************************************
+
+TASK [Include mariadb post-deploy.yml] *****************************************
+skipping: [ctrl01]
+
+TASK [Include mariadb post-upgrade.yml] ****************************************
+skipping: [ctrl01]
+
+PLAY [Apply role memcached] ****************************************************
+
+TASK [memcached : include_tasks] ***********************************************
+included: /opt/kolla-venv/share/kolla-ansible/ansible/roles/memcached/tasks/pull.yml for ctrl01
+
+TASK [service-images-pull : memcached | Pull images] ***************************
+[WARNING]: Could not match supplied host pattern, ignoring:
+enable_prometheus_True
+[WARNING]: Could not match supplied host pattern, ignoring: enable_iscsid_True
+[WARNING]: Could not match supplied host pattern, ignoring:
+enable_multipathd_True
+ok: [ctrl01] => (item=memcached)
+
+PLAY [Apply role prometheus] ***************************************************
+skipping: no hosts matched
+
+PLAY [Apply role iscsi] ********************************************************
+skipping: no hosts matched
+
+PLAY [Apply role multipathd] ***************************************************
+skipping: no hosts matched
+
+PLAY [Apply role rabbitmq] *****************************************************
+
+TASK [rabbitmq : include_tasks] ************************************************
+included: /opt/kolla-venv/share/kolla-ansible/ansible/roles/rabbitmq/tasks/pull.yml for ctrl01
+
+TASK [service-images-pull : rabbitmq | Pull images] ****************************
+[WARNING]: Could not match supplied host pattern, ignoring: rabbitmq_restart
+ok: [ctrl01] => (item=rabbitmq)
+
+PLAY [Restart rabbitmq services] ***********************************************
+skipping: no hosts matched
+
+PLAY [Apply rabbitmq post-configuration] ***************************************
+
+TASK [Include rabbitmq post-deploy.yml] ****************************************
+[WARNING]: Could not match supplied host pattern, ignoring: enable_etcd_True
+skipping: [ctrl01]
+
+PLAY [Apply role etcd] *********************************************************
+skipping: no hosts matched
+
+PLAY [Apply role keystone] *****************************************************
+
+TASK [keystone : include_tasks] ************************************************
+included: /opt/kolla-venv/share/kolla-ansible/ansible/roles/keystone/tasks/pull.yml for ctrl01
+
+TASK [service-images-pull : keystone | Pull images] ****************************
+[WARNING]: Could not match supplied host pattern, ignoring:
+enable_opensearch_True
+[WARNING]: Could not match supplied host pattern, ignoring:
+enable_ceph_rgw_True
+ok: [ctrl01] => (item=keystone)
+ok: [ctrl01] => (item=keystone-ssh)
+ok: [ctrl01] => (item=keystone-fernet)
+
+PLAY [Apply role opensearch] ***************************************************
+skipping: no hosts matched
+
+PLAY [Apply role ceph-rgw] *****************************************************
+skipping: no hosts matched
+
+PLAY [Apply role glance] *******************************************************
+
+TASK [glance : include_tasks] **************************************************
+included: /opt/kolla-venv/share/kolla-ansible/ansible/roles/glance/tasks/pull.yml for ctrl01
+
+TASK [service-images-pull : glance | Pull images] ******************************
+[WARNING]: Could not match supplied host pattern, ignoring: enable_ironic_True
+[WARNING]: Could not match supplied host pattern, ignoring: enable_cinder_True
+ok: [ctrl01] => (item=glance-api)
+
+PLAY [Apply role ironic] *******************************************************
+skipping: no hosts matched
+
+PLAY [Apply role cinder] *******************************************************
+skipping: no hosts matched
+
+PLAY [Apply role placement] ****************************************************
+
+TASK [placement : include_tasks] ***********************************************
+included: /opt/kolla-venv/share/kolla-ansible/ansible/roles/placement/tasks/pull.yml for ctrl01
+
+TASK [service-images-pull : placement | Pull images] ***************************
+ok: [ctrl01] => (item=placement-api)
+
+PLAY [Apply role openvswitch] **************************************************
+
+TASK [openvswitch : include_tasks] *********************************************
+included: /opt/kolla-venv/share/kolla-ansible/ansible/roles/openvswitch/tasks/pull.yml for ctrl01, comp01
+
+TASK [service-images-pull : openvswitch | Pull images] *************************
+[WARNING]: Could not match supplied host pattern, ignoring:
+enable_openvswitch_True_enable_ovs_dpdk_True
+ok: [ctrl01] => (item=openvswitch-db-server)
+ok: [comp01] => (item=openvswitch-db-server)
+ok: [ctrl01] => (item=openvswitch-vswitchd)
+ok: [comp01] => (item=openvswitch-vswitchd)
+
+PLAY [Apply role ovs-dpdk] *****************************************************
+skipping: no hosts matched
+
+PLAY [Apply role ovn-controller] ***********************************************
+
+TASK [ovn-controller : include_tasks] ******************************************
+included: /opt/kolla-venv/share/kolla-ansible/ansible/roles/ovn-controller/tasks/pull.yml for ctrl01, comp01
+
+TASK [service-images-pull : ovn_controller | Pull images] **********************
+ok: [ctrl01] => (item=ovn-controller)
+ok: [comp01] => (item=ovn-controller)
+
+PLAY [Apply role ovn-db] *******************************************************
+
+TASK [ovn-db : include_tasks] **************************************************
+included: /opt/kolla-venv/share/kolla-ansible/ansible/roles/ovn-db/tasks/pull.yml for ctrl01
+
+TASK [service-images-pull : ovn_db | Pull images] ******************************
+ok: [ctrl01] => (item=ovn-northd)
+ok: [ctrl01] => (item=ovn-nb-db)
+ok: [ctrl01] => (item=ovn-sb-db)
+ok: [ctrl01] => (item=ovn-sb-db-relay)
+
+PLAY [Bootstrap nova API databases] ********************************************
+
+TASK [Bootstrap deploy] ********************************************************
+skipping: [ctrl01]
+
+TASK [Bootstrap upgrade] *******************************************************
+skipping: [ctrl01]
+
+PLAY [Bootstrap nova cell databases] *******************************************
+
+TASK [Bootstrap deploy] ********************************************************
+skipping: [ctrl01]
+
+TASK [Bootstrap upgrade] *******************************************************
+skipping: [ctrl01]
+
+PLAY [Apply role nova] *********************************************************
+
+TASK [nova : include_tasks] ****************************************************
+included: /opt/kolla-venv/share/kolla-ansible/ansible/roles/nova/tasks/pull.yml for ctrl01
+
+TASK [service-images-pull : nova | Pull images] ********************************
+ok: [ctrl01] => (item=nova-api)
+ok: [ctrl01] => (item=nova-metadata)
+ok: [ctrl01] => (item=nova-scheduler)
+
+PLAY [Apply role nova-cell] ****************************************************
+
+TASK [nova-cell : include_tasks] ***********************************************
+included: /opt/kolla-venv/share/kolla-ansible/ansible/roles/nova-cell/tasks/pull.yml for comp01, ctrl01
+
+TASK [service-images-pull : nova_cell | Pull images] ***************************
+ok: [ctrl01] => (item=nova-novncproxy)
+ok: [ctrl01] => (item=nova-conductor)
+changed: [comp01] => (item=nova-libvirt)
+ok: [comp01] => (item=nova-ssh)
+ok: [comp01] => (item=nova-compute)
+
+PLAY [Refresh nova scheduler cell cache] ***************************************
+
+TASK [nova : Refresh cell cache in nova scheduler] *****************************
+skipping: [ctrl01]
+
+PLAY [Reload global Nova super conductor services] *****************************
+
+TASK [nova : Reload nova super conductor services to remove RPC version pin] ***
+skipping: [ctrl01]
+
+PLAY [Reload Nova cell services] ***********************************************
+
+TASK [nova-cell : Reload nova cell services to remove RPC version cap] *********
+skipping: [comp01] => (item=nova-conductor) 
+skipping: [comp01] => (item=nova-compute) 
+skipping: [comp01] => (item=nova-compute-ironic) 
+skipping: [comp01] => (item=nova-novncproxy) 
+skipping: [comp01] => (item=nova-serialproxy) 
+skipping: [ctrl01] => (item=nova-conductor) 
+skipping: [comp01] => (item=nova-spicehtml5proxy) 
+skipping: [comp01]
+skipping: [ctrl01] => (item=nova-compute) 
+skipping: [ctrl01] => (item=nova-compute-ironic) 
+skipping: [ctrl01] => (item=nova-novncproxy) 
+skipping: [ctrl01] => (item=nova-serialproxy) 
+skipping: [ctrl01] => (item=nova-spicehtml5proxy) 
+skipping: [ctrl01]
+
+PLAY [Reload global Nova API services] *****************************************
+
+TASK [nova : Reload nova API services to remove RPC version pin] ***************
+skipping: [ctrl01] => (item=nova-scheduler) 
+skipping: [ctrl01] => (item=nova-api) 
+skipping: [ctrl01]
+
+PLAY [Run Nova API online data migrations] *************************************
+
+TASK [nova : Run Nova API online database migrations] **************************
+skipping: [ctrl01]
+
+PLAY [Run Nova cell online data migrations] ************************************
+
+TASK [nova-cell : Run Nova cell online database migrations] ********************
+skipping: [ctrl01]
+
+PLAY [Apply role neutron] ******************************************************
+
+TASK [neutron : include_tasks] *************************************************
+included: /opt/kolla-venv/share/kolla-ansible/ansible/roles/neutron/tasks/pull.yml for ctrl01, comp01
+
+TASK [service-images-pull : neutron | Pull images] *****************************
+[WARNING]: Could not match supplied host pattern, ignoring: enable_kuryr_True
+[WARNING]: Could not match supplied host pattern, ignoring:
+enable_hacluster_True
+ok: [ctrl01] => (item=neutron-server)
+ok: [ctrl01] => (item=neutron-ovn-metadata-agent)
+changed: [comp01] => (item=neutron-ovn-metadata-agent)
+
+PLAY [Apply role kuryr] ********************************************************
+skipping: no hosts matched
+
+PLAY [Apply role hacluster] ****************************************************
+skipping: no hosts matched
+
+PLAY [Apply role heat] *********************************************************
+
+TASK [heat : include_tasks] ****************************************************
+included: /opt/kolla-venv/share/kolla-ansible/ansible/roles/heat/tasks/pull.yml for ctrl01
+
+TASK [service-images-pull : heat | Pull images] ********************************
+ok: [ctrl01] => (item=heat-api)
+ok: [ctrl01] => (item=heat-api-cfn)
+ok: [ctrl01] => (item=heat-engine)
+
+PLAY [Apply role horizon] ******************************************************
+
+TASK [horizon : include_tasks] *************************************************
+included: /opt/kolla-venv/share/kolla-ansible/ansible/roles/horizon/tasks/pull.yml for ctrl01
+
+TASK [service-images-pull : horizon | Pull images] *****************************
+[WARNING]: Could not match supplied host pattern, ignoring: enable_magnum_True
+[WARNING]: Could not match supplied host pattern, ignoring: enable_mistral_True
+[WARNING]: Could not match supplied host pattern, ignoring: enable_manila_True
+[WARNING]: Could not match supplied host pattern, ignoring: enable_gnocchi_True
+[WARNING]: Could not match supplied host pattern, ignoring:
+enable_ceilometer_True
+[WARNING]: Could not match supplied host pattern, ignoring: enable_aodh_True
+[WARNING]: Could not match supplied host pattern, ignoring:
+enable_barbican_True
+[WARNING]: Could not match supplied host pattern, ignoring: enable_cyborg_True
+[WARNING]: Could not match supplied host pattern, ignoring:
+enable_designate_True
+[WARNING]: Could not match supplied host pattern, ignoring: enable_trove_True
+[WARNING]: Could not match supplied host pattern, ignoring: enable_watcher_True
+[WARNING]: Could not match supplied host pattern, ignoring: enable_grafana_True
+[WARNING]: Could not match supplied host pattern, ignoring:
+enable_cloudkitty_True
+[WARNING]: Could not match supplied host pattern, ignoring: enable_tacker_True
+[WARNING]: Could not match supplied host pattern, ignoring: enable_octavia_True
+[WARNING]: Could not match supplied host pattern, ignoring: enable_zun_True
+[WARNING]: Could not match supplied host pattern, ignoring: enable_blazar_True
+[WARNING]: Could not match supplied host pattern, ignoring:
+enable_masakari_True
+[WARNING]: Could not match supplied host pattern, ignoring: enable_venus_True
+[WARNING]: Could not match supplied host pattern, ignoring: enable_skyline_True
+ok: [ctrl01] => (item=horizon)
+
+PLAY [Apply role magnum] *******************************************************
+skipping: no hosts matched
+
+PLAY [Apply role mistral] ******************************************************
+skipping: no hosts matched
+
+PLAY [Apply role manila] *******************************************************
+skipping: no hosts matched
+
+PLAY [Apply role gnocchi] ******************************************************
+skipping: no hosts matched
+
+PLAY [Apply role ceilometer] ***************************************************
+skipping: no hosts matched
+
+PLAY [Apply role aodh] *********************************************************
+skipping: no hosts matched
+
+PLAY [Apply role barbican] *****************************************************
+skipping: no hosts matched
+
+PLAY [Apply role cyborg] *******************************************************
+skipping: no hosts matched
+
+PLAY [Apply role designate] ****************************************************
+skipping: no hosts matched
+
+PLAY [Apply role trove] ********************************************************
+skipping: no hosts matched
+
+PLAY [Apply role watcher] ******************************************************
+skipping: no hosts matched
+
+PLAY [Apply role grafana] ******************************************************
+skipping: no hosts matched
+
+PLAY [Apply role cloudkitty] ***************************************************
+skipping: no hosts matched
+
+PLAY [Apply role tacker] *******************************************************
+skipping: no hosts matched
+
+PLAY [Apply role octavia] ******************************************************
+skipping: no hosts matched
+
+PLAY [Apply role zun] **********************************************************
+skipping: no hosts matched
+
+PLAY [Apply role blazar] *******************************************************
+skipping: no hosts matched
+
+PLAY [Apply role masakari] *****************************************************
+skipping: no hosts matched
+
+PLAY [Apply role venus] ********************************************************
+skipping: no hosts matched
+
+PLAY [Apply role skyline] ******************************************************
+skipping: no hosts matched
+
+PLAY RECAP *********************************************************************
+comp01                     : ok=14   changed=2    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+ctrl01                     : ok=37   changed=0    unreachable=0    failed=0    skipped=52   rescued=0    ignored=0   
+localhost                  : ok=4    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+

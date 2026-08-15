@@ -1,0 +1,160 @@
+Bootstrapping servers
+[WARNING]: Invalid characters were found in group names but not replaced, use
+-vvvv to see details
+
+PLAY [Gather facts for all hosts] **********************************************
+
+TASK [Group hosts to determine when using --limit] *****************************
+ok: [ctrl01]
+ok: [comp01]
+ok: [localhost]
+
+TASK [Gather facts] ************************************************************
+[WARNING]: Could not match supplied host pattern, ignoring:
+all_using_limit_True
+ok: [localhost]
+ok: [ctrl01]
+ok: [comp01]
+
+PLAY [Gather facts for all hosts (if using --limit)] ***************************
+skipping: no hosts matched
+
+PLAY [Apply role baremetal] ****************************************************
+
+TASK [openstack.kolla.etc_hosts : Include etc-hosts.yml] ***********************
+included: /home/tai/.ansible/collections/ansible_collections/openstack/kolla/roles/etc_hosts/tasks/etc-hosts.yml for ctrl01, comp01
+
+TASK [openstack.kolla.etc_hosts : Ensure localhost in /etc/hosts] **************
+ok: [ctrl01]
+ok: [comp01]
+
+TASK [openstack.kolla.etc_hosts : Ensure hostname does not point to 127.0.1.1 in /etc/hosts] ***
+changed: [ctrl01]
+changed: [comp01]
+
+TASK [openstack.kolla.etc_hosts : Generate /etc/hosts for all of the nodes] ****
+changed: [ctrl01]
+changed: [comp01]
+
+TASK [openstack.kolla.etc_hosts : Check whether /etc/cloud/cloud.cfg exists] ***
+ok: [ctrl01]
+ok: [comp01]
+
+TASK [openstack.kolla.etc_hosts : Disable cloud-init manage_etc_hosts] *********
+changed: [ctrl01]
+changed: [comp01]
+
+TASK [openstack.kolla.baremetal : Ensure unprivileged users can use ping] ******
+skipping: [ctrl01]
+skipping: [comp01]
+
+TASK [openstack.kolla.baremetal : Set firewall default policy] *****************
+ok: [ctrl01]
+ok: [comp01]
+
+TASK [openstack.kolla.baremetal : Check if firewalld is installed] *************
+skipping: [ctrl01]
+skipping: [comp01]
+
+TASK [openstack.kolla.baremetal : Disable firewalld] ***************************
+skipping: [ctrl01] => (item=firewalld) 
+skipping: [ctrl01]
+skipping: [comp01] => (item=firewalld) 
+skipping: [comp01]
+
+TASK [openstack.kolla.packages : Install packages] *****************************
+ok: [comp01]
+ok: [ctrl01]
+
+TASK [openstack.kolla.packages : Remove packages] ******************************
+changed: [ctrl01]
+changed: [comp01]
+
+TASK [openstack.kolla.docker : include_tasks] **********************************
+included: /home/tai/.ansible/collections/ansible_collections/openstack/kolla/roles/docker/tasks/install.yml for ctrl01, comp01
+
+TASK [openstack.kolla.docker : include_tasks] **********************************
+included: /home/tai/.ansible/collections/ansible_collections/openstack/kolla/roles/docker/tasks/repo-Debian.yml for ctrl01, comp01
+
+TASK [openstack.kolla.docker : Install CA certificates and gnupg packages] *****
+ok: [ctrl01]
+ok: [comp01]
+
+TASK [openstack.kolla.docker : Ensure apt sources list directory exists] *******
+ok: [ctrl01]
+ok: [comp01]
+
+TASK [openstack.kolla.docker : Ensure apt keyrings directory exists] ***********
+ok: [ctrl01]
+ok: [comp01]
+
+TASK [openstack.kolla.docker : Install docker apt gpg key] *********************
+changed: [ctrl01]
+changed: [comp01]
+
+TASK [openstack.kolla.docker : Install docker apt pin] *************************
+skipping: [ctrl01]
+skipping: [comp01]
+
+TASK [openstack.kolla.docker : Ensure old docker repository absent] ************
+ok: [ctrl01]
+ok: [comp01]
+
+TASK [openstack.kolla.docker : Enable docker apt repository] *******************
+changed: [ctrl01]
+changed: [comp01]
+
+TASK [openstack.kolla.docker : Update the apt cache] ***************************
+changed: [ctrl01]
+changed: [comp01]
+
+TASK [openstack.kolla.docker : Check which containers are running] *************
+ok: [ctrl01]
+ok: [comp01]
+
+TASK [openstack.kolla.docker : Check if docker systemd unit exists] ************
+ok: [ctrl01]
+ok: [comp01]
+
+TASK [openstack.kolla.docker : Mask the docker systemd unit on Debian/Ubuntu] ***
+changed: [ctrl01]
+changed: [comp01]
+
+TASK [openstack.kolla.docker : Install packages] *******************************
+changed: [ctrl01]
+changed: [comp01]
+
+TASK [openstack.kolla.docker : Start docker] ***********************************
+skipping: [ctrl01]
+skipping: [comp01]
+
+TASK [openstack.kolla.docker : Wait for Docker to start] ***********************
+skipping: [ctrl01]
+skipping: [comp01]
+
+TASK [openstack.kolla.docker : Ensure containers are running after Docker upgrade] ***
+skipping: [ctrl01]
+skipping: [comp01]
+
+TASK [openstack.kolla.docker : Ensure docker config directory exists] **********
+ok: [ctrl01]
+ok: [comp01]
+
+TASK [openstack.kolla.docker : Write docker config] ****************************
+changed: [ctrl01]
+changed: [comp01]
+
+TASK [openstack.kolla.docker : meta] *******************************************
+
+TASK [openstack.kolla.docker : meta] *******************************************
+
+RUNNING HANDLER [openstack.kolla.docker : Restart docker] **********************
+fatal: [ctrl01]: FAILED! => {"changed": false, "msg": "Unable to start service docker: Job for docker.service failed because the control process exited with error code.\nSee \"systemctl status docker.service\" and \"journalctl -xeu docker.service\" for details.\n"}
+fatal: [comp01]: FAILED! => {"changed": false, "msg": "Unable to start service docker: Job for docker.service failed because the control process exited with error code.\nSee \"systemctl status docker.service\" and \"journalctl -xeu docker.service\" for details.\n"}
+
+PLAY RECAP *********************************************************************
+comp01                     : ok=26   changed=10   unreachable=0    failed=1    skipped=7    rescued=0    ignored=0   
+ctrl01                     : ok=26   changed=10   unreachable=0    failed=1    skipped=7    rescued=0    ignored=0   
+localhost                  : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+Kolla Ansible playbook(s) /opt/kolla-venv/share/kolla-ansible/ansible/kolla-host.yml exited 2
